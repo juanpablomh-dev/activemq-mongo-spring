@@ -1,0 +1,40 @@
+version: '3.7'
+services:
+
+  activemq:
+    image: webcenter/activemq       
+    ports:
+      - 61616:61616
+      - 8161:8161
+    restart: always
+    volumes:
+      - ./volume/activemq/data:/data/activemq
+      - ./volume/activemq/log:/var/log/activem
+        
+  mongodb_contenedor:
+    image: mongo
+    environment:
+      - MONGO_INITDB_DATABASE=trafic
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=admin
+    volumes:
+      - ./volume/mongo/data:/data/db
+    ports:
+      - 27017:27017
+        
+  #service-publisher:
+  #  build:
+  #      context: service-publisher
+  #      dockerfile: Dockerfile
+  #  image: service-publisher:latest
+  #  ports:
+  #      - 8091:8091
+  #
+  #      
+  #service-consumer:
+  #  build:
+  #      context: service-consumer
+  #      dockerfile: Dockerfile
+  #  image: service-consumer:latest
+  #  ports:
+  #      - 8092:8092
