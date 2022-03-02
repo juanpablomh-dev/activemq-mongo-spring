@@ -23,17 +23,21 @@ import com.jpmh.springboot.app.publisher.model.Message;
 @SpringBootApplication
 public class ServicePublisherApplication {
 
-	private static final Logger logger = LoggerFactory.getLogger(ServicePublisherApplication.class);
-	
-	public static void main(String[] args) {
-		logger.info("Sending message to Broker...");
-		ConfigurableApplicationContext context = SpringApplication.run(ServicePublisherApplication.class, args);
-		JmsTemplate jmsTemplate = context.getBean(JmsTemplate.class);
-		IDataGenerator data = new DataGeneratorSimulated();
-		data.generateData(jmsTemplate);		
-	}
-	
-	@Bean
+    private static final Logger logger = LoggerFactory.getLogger(ServicePublisherApplication.class);
+
+    public static void main(String[] args) {
+        ConfigurableApplicationContext context = SpringApplication.run(ServicePublisherApplication.class, args);
+        sendDataToBroker(context);
+    }
+
+    private static void sendDataToBroker(ConfigurableApplicationContext context) {
+        logger.info("Sending message to Broker...");
+        JmsTemplate jmsTemplate = context.getBean(JmsTemplate.class);
+        IDataGenerator data = new DataGeneratorSimulated();
+        data.generateData(jmsTemplate);
+    }
+
+    @Bean
     public MessageConverter jacksonJmsMessageConverter() {
         MappingJackson2MessageConverter converter = new MappingJackson2MessageConverter();
         Map<String, Class<?>> typeIdMappings = new HashMap<String, Class<?>>();
@@ -42,5 +46,5 @@ public class ServicePublisherApplication {
         converter.setTargetType(MessageType.TEXT);
         converter.setTypeIdPropertyName(Properties.K_ID_MAPPINGS);
         return converter;
-    }	
+    }
 }
