@@ -1,7 +1,10 @@
 package com.jpmh.springboot.app.publisher.model;
 
 import org.apache.commons.lang3.RandomStringUtils;
+<<<<<<< HEAD
 
+=======
+>>>>>>> 2094a9489a2b68861fa38d0a518c5fda70070aa1
 import java.util.Date;
 
 public class Message {
@@ -10,7 +13,7 @@ public class Message {
 	private VehicleType vehicleType;
 	private Integer speed;
 	private Date dateTime;
-	
+
 	public Message() {
 	}
 
@@ -19,6 +22,13 @@ public class Message {
 		this.vehicleType = vehicleType;
 		this.speed = speed;
 		this.dateTime = dateTime;
+	}
+
+	public Message(Builder builder) {
+		this.registration = builder.registration;
+		this.vehicleType = builder.vehicleType;
+		this.speed = builder.speed;
+		this.dateTime = builder.dateTime;
 	}
 
 	public String getRegistration() {
@@ -58,6 +68,7 @@ public class Message {
 		return String.format("Message{registration=%s, vehicleType=%s, speed=%s; dateTime=%s,}", getRegistration(), getVehicleType(), getSpeed(), getDateTime());
 	}
 
+<<<<<<< HEAD
 	public void random() {
 		this.registration = RandomStringUtils.random(10, true, true);
 		this.vehicleType = VehicleType.values()[(int) (Math.random() * VehicleType.values().length)];
@@ -66,3 +77,44 @@ public class Message {
 	}
 
 }
+=======
+
+	/**
+	 * The builder class.
+	 */
+	public static class Builder {
+		private String registration;
+		private VehicleType vehicleType;
+		private Integer speed;
+		private Date dateTime;
+
+		public Builder() {
+
+		}
+		public Builder registration(String registration) {
+			this.registration = registration;
+			return this;
+		}
+		public Builder vehicleType(VehicleType vehicleType) {
+			this.vehicleType = vehicleType;
+			return this;
+		}
+		public Builder speed(Integer speed) {
+			this.speed = speed;
+			return this;
+		}
+		public Builder dateTime(Date dateTime) {
+			this.dateTime = dateTime;
+			return this;
+		}
+
+		public Builder random() {
+			this.registration = RandomStringUtils.random(10, true, true);;
+			this.vehicleType = VehicleType.values()[((int) (Math.random() * VehicleType.values().length))];
+			this.speed = (int) (Math.random() * 200);
+			this.dateTime = new Date();
+			return this;
+		}
+	}
+}
+>>>>>>> 2094a9489a2b68861fa38d0a518c5fda70070aa1
