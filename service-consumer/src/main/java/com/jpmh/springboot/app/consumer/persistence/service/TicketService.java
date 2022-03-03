@@ -1,11 +1,11 @@
-package com.jpmh.springboot.app.consumer.service;
+package com.jpmh.springboot.app.consumer.persistence.service;
 
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.jpmh.springboot.app.consumer.model.Ticket;
-import com.jpmh.springboot.app.consumer.repository.TicketRepository;
+import com.jpmh.springboot.app.consumer.domain.Ticket;
+import com.jpmh.springboot.app.consumer.persistence.repository.TicketRepository;
 
 @Service
 public class TicketService implements ITicketService{

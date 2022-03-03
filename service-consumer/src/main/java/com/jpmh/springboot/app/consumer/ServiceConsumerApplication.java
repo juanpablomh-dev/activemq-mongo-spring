@@ -14,8 +14,8 @@ import org.springframework.jms.config.JmsListenerContainerFactory;
 import org.springframework.jms.support.converter.MappingJackson2MessageConverter;
 import org.springframework.jms.support.converter.MessageConverter;
 import org.springframework.jms.support.converter.MessageType;
-import com.jpmh.springboot.app.consumer.gral.Properties;
-import com.jpmh.springboot.app.consumer.model.Message;
+import com.jpmh.springboot.app.consumer.domain.gral.Properties;
+import com.jpmh.springboot.app.consumer.domain.Message;
 
 @SpringBootApplication
 public class ServiceConsumerApplication {

@@ -8,8 +8,10 @@ It has two services that interact with a message queue.
 
 The information stored in the database can be consulted using the rest services:
 
-- http://localhost:8092/tickets
-- http://localhost:8092/tickets{id}
+		
+## Api Documentation
+
+- http://localhost:8092/swagger-ui.html
 
 
 The docker-compose.yml file contains the necessary configuration to create the docker containers with mongodb and activemq.

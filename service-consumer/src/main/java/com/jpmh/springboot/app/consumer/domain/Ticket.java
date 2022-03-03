@@ -1,4 +1,4 @@
-package com.jpmh.springboot.app.consumer.model;
+package com.jpmh.springboot.app.consumer.domain;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;

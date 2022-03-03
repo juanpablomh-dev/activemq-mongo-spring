@@ -1,6 +1,6 @@
-package com.jpmh.springboot.app.consumer.model;
+package com.jpmh.springboot.app.consumer.domain;
 
-import com.jpmh.springboot.app.consumer.gral.Properties;
+import com.jpmh.springboot.app.consumer.domain.gral.Properties;
 import java.util.Date;
 
 public class Message {

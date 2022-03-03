@@ -1,9 +1,9 @@
-package com.jpmh.springboot.app.consumer.logic;
+package com.jpmh.springboot.app.consumer.domain.logic;
 
 import org.apache.commons.lang3.RandomStringUtils;
-import com.jpmh.springboot.app.consumer.model.Message;
-import com.jpmh.springboot.app.consumer.model.Ticket;
-import com.jpmh.springboot.app.consumer.model.VehicleType;
+import com.jpmh.springboot.app.consumer.domain.Message;
+import com.jpmh.springboot.app.consumer.domain.Ticket;
+import com.jpmh.springboot.app.consumer.domain.VehicleType;
 
 public class TicketGenerator{
 

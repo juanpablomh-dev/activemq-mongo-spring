@@ -1,4 +1,4 @@
-package com.jpmh.springboot.app.consumer.gral;
+package com.jpmh.springboot.app.consumer.domain.gral;
 
 public class Properties {
 	public static final String K_QUEUE = "my_queue";
