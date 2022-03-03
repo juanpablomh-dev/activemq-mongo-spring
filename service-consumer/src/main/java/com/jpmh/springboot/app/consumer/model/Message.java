@@ -1,5 +1,7 @@
 package com.jpmh.springboot.app.consumer.model;
 
+import com.jpmh.springboot.app.consumer.gral.Properties;
+
 import java.util.Date;
 
 public class Message {
@@ -55,5 +57,20 @@ public class Message {
 	public String toString() {
 		return String.format("Message{registration=%s, vehicleType=%s, speed=%s; dateTime=%s,}", getRegistration(), getVehicleType(), getSpeed(), getDateTime());
 	}
-	
+
+	public boolean exceedSpeedLimit() {
+		if((getVehicleType()==VehicleType.MOTORCYCLE) && (getSpeed() >= Properties.K_MOTORCYCLE_SPEED_LIMIT)) {
+			return true;
+		}
+		if((getVehicleType()==VehicleType.CAR) && (getSpeed() >= Properties.K_CAR_SPEED_LIMIT)) {
+			return true;
+		}
+		if((getVehicleType()==VehicleType.PICKUP) && (getSpeed() >= Properties.K_PICKUP_SPEED_LIMIT)) {
+			return true;
+		}
+		if((getVehicleType()==VehicleType.TRUCK) && (getSpeed() >= Properties.K_TRUCK_SPEED_LIMIT)) {
+			return true;
+		}
+		return false;
+	}
 }

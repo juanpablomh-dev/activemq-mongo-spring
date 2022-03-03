@@ -26,24 +26,23 @@ public class ServiceConsumerApplication {
 	}
 	
 	@Bean
-	public JmsListenerContainerFactory<?> myFactory(ConnectionFactory connectionFactory,
-													DefaultJmsListenerContainerFactoryConfigurer configurer) {
+	public JmsListenerContainerFactory<?> myFactory(
+			ConnectionFactory connectionFactory,
+			DefaultJmsListenerContainerFactoryConfigurer configured) {
+
 		DefaultJmsListenerContainerFactory factory = new DefaultJmsListenerContainerFactory();
-		configurer.configure(factory, connectionFactory);
+		configured.configure(factory, connectionFactory);
 		return factory;
 	}	
 
 	@Bean
     public MessageConverter jacksonJmsMessageConverter() {
         MappingJackson2MessageConverter converter = new MappingJackson2MessageConverter();
-
         Map<String, Class<?>> typeIdMappings = new HashMap<String, Class<?>>();
         typeIdMappings.put(Properties.K_ID_MAPPINGS, Message.class);
-
         converter.setTypeIdMappings(typeIdMappings);
         converter.setTargetType(MessageType.TEXT);
         converter.setTypeIdPropertyName(Properties.K_ID_MAPPINGS);
-
         return converter;
     }
 
