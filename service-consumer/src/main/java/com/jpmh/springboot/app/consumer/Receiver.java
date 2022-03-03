@@ -3,7 +3,6 @@ package com.jpmh.springboot.app.consumer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jms.annotation.JmsListener;
 import org.springframework.stereotype.Component;
-
 import com.jpmh.springboot.app.consumer.gral.Properties;
 import com.jpmh.springboot.app.consumer.logic.TicketGenerator;
 import com.jpmh.springboot.app.consumer.model.Message;

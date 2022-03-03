@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.jpmh.springboot.app.consumer.model.Ticket;
 import com.jpmh.springboot.app.consumer.service.TicketService;
 
-
 @RestController
 @RequestMapping("/tickets")
 public class TicketController {

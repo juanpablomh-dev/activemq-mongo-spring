@@ -67,7 +67,4 @@ public class Ticket {
 	public String toString() {
 		return String.format("Ticket{id=%s}", getId());
 	}
-		
-	
-	
 }

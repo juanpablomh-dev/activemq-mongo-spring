@@ -8,5 +8,4 @@ import com.jpmh.springboot.app.consumer.model.Ticket;
 
 @Repository
 public interface TicketRepository extends MongoRepository<Ticket, String> {
-
 }

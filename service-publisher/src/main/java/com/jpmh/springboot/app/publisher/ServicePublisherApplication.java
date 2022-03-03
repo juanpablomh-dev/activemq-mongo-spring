@@ -24,23 +24,12 @@ import java.util.Map;
 public class ServicePublisherApplication {
     private static final Logger logger = LoggerFactory.getLogger(ServicePublisherApplication.class);
 
-<<<<<<< HEAD
 	public static void main(String[] args) {
 		ConfigurableApplicationContext context = SpringApplication.run(ServicePublisherApplication.class, args);
-        publisher(context);
+        sendDataToBroker(context);
 	}
 
-    private static void publisher(ConfigurableApplicationContext context) {
-=======
-    private static final Logger logger = LoggerFactory.getLogger(ServicePublisherApplication.class);
-
-    public static void main(String[] args) {
-        ConfigurableApplicationContext context = SpringApplication.run(ServicePublisherApplication.class, args);
-        sendDataToBroker(context);
-    }
-
     private static void sendDataToBroker(ConfigurableApplicationContext context) {
->>>>>>> 2094a9489a2b68861fa38d0a518c5fda70070aa1
         logger.info("Sending message to Broker...");
         JmsTemplate jmsTemplate = context.getBean(JmsTemplate.class);
         IDataGenerator data = new DataGeneratorSimulated();
